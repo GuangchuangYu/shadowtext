@@ -3,7 +3,7 @@ Title: Shadow Text Layer
 Version: 0.0.0.9000
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
 Description: Implement a geom_shadowtext layer for ggplot2. The layer plot the text lable with background shadow.
-Depends: R (>= 3.4.2)
+Depends: R (>= 3.4.1)
 Imports:
     ggplot2,
     grid
