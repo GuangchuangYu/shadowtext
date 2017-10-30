@@ -35,5 +35,5 @@ set.seed(2017-10-27)
 d <- data.frame(x = rnorm(n), y=rnorm(n),
                 label = random_text(n))
 ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label), size=5)
-ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label, color=label), bgcolor='firebrick', size=5)
+ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label, color=label), bg.color='firebrick', size=5)
 ```

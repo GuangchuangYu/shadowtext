@@ -21,7 +21,7 @@ ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label), size=5)
 ![](Figs/unnamed-chunk-2-1.png)
 
 ``` r
-ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label, color=label), bgcolor='firebrick', size=5)
+ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label, color=label), bg.color='firebrick', size=5)
 ```
 
 ![](Figs/unnamed-chunk-2-2.png)

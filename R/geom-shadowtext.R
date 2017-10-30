@@ -66,11 +66,11 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
 ##' @importFrom ggplot2 Geom
 GeomShadowText <- ggproto("GeomShadowText", Geom,
                           required_aes = c("x", "y", "label"),
-                          
+
                           default_aes = aes(
                               colour = "white", size = 3.88, angle = 0, hjust = 0.5,
                               vjust = 0.5, alpha = NA, family = "", fontface = 1, lineheight = 1.2,
-                              bgcolor = "black"
+                              bg.color = "black", bg.r = 0.1
                           ),
 
                           draw_panel = function(data, panel_params, coord, parse = FALSE,
@@ -79,7 +79,7 @@ GeomShadowText <- ggproto("GeomShadowText", Geom,
                               if (parse) {
                                   lab <- parse(text = as.character(lab))
                               }
-                              
+
                               data <- coord$transform(data, panel_params)
                               if (is.character(data$vjust)) {
                                   data$vjust <- compute_just(data$vjust, data$y)
@@ -87,13 +87,14 @@ GeomShadowText <- ggproto("GeomShadowText", Geom,
                               if (is.character(data$hjust)) {
                                   data$hjust <- compute_just(data$hjust, data$x)
                               }
-                              
+
                               shadowtextGrob(
                                   lab,
                                   data$x, data$y, default.units = "native",
                                   hjust = data$hjust, vjust = data$vjust,
                                   rot = data$angle,
-                                  bgcolor = alpha(data$bgcolor, data$alpha),
+                                  bg.color = alpha(data$bg.color, data$alpha),
+                                  bg.r = data$bg.r,
                                   gp = gpar(
                                       col = alpha(data$colour, data$alpha),
                                       fontsize = data$size * .pt,
@@ -104,69 +105,51 @@ GeomShadowText <- ggproto("GeomShadowText", Geom,
                                   check.overlap = check_overlap
                               )
                           },
-                          
+
                           draw_key = draw_key_text
                           )
 
 compute_just <- getFromNamespace("compute_just", "ggplot2")
 just_dir <- getFromNamespace("just_dir", "ggplot2")
 
-## compute_just <- function(just, x) {
-##   inward <- just == "inward"
-##   just[inward] <- c("left", "middle", "right")[just_dir(x[inward])]
-##   outward <- just == "outward"
-##   just[outward] <- c("right", "middle", "left")[just_dir(x[outward])]
 
-##   unname(c(left = 0, center = 0.5, right = 1,
-##     bottom = 0, middle = 0.5, top = 1)[just])
-## }
-
-## just_dir <- function(x, tol = 0.001) {
-##   out <- rep(2L, length(x))
-##   out[x < 0.5 - tol] <- 1L
-##   out[x > 0.5 + tol] <- 3L
-##   out
-## }
 
 ##' @importFrom grid textGrob
 ##' @importFrom grid unit
 ##' @importFrom grid gpar
 ##' @importFrom grid gList
 ##' @importFrom grid gTree
+##' @importFrom grid is.unit
 shadowtextGrob <- function (label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
                             just = "centre", hjust = NULL, vjust = NULL, rot = 0, check.overlap = FALSE,
                             default.units = "npc", name = NULL, gp = gpar(), vp = NULL,
-                            bgcolor = NULL) {
-    
+                            bg.color = "black", bg.r = 0.1) {
+
     upperGrob <- textGrob(label = label, x = x, y = y, just = just, hjust = hjust,
                           vjust = vjust, rot = rot, default.units = default.units,
                           check.overlap = check.overlap, name = name, gp = gp, vp = vp)
-    
-    if (is.null(bgcolor))
-        return(upperGrob)
-    
-    xr <- diff(range(as.numeric(x))) / 200
-    yr <- diff(range(as.numeric(y))) / 200
-    
-    if (xr == 0) xr <- 0.002
-    if (yr == 0) yr <- 0.002
 
-    gp$col <- bgcolor
-    theta <- seq(pi/8, 2*pi, length.out=16)
+    gp$col <- bg.color
     ovp <- vp
+
+    theta <- seq(pi/8, 2*pi, length.out=16)
     char <- substring(label[1], 1, 1)
+    r <- bg.r[1]
 
     bgList <- lapply(theta, function(i) {
         vp <- ovp
-        ci <- cos(i) * xr
-        si <- sin(i) * yr
-        x <- x + sapply(seq_along(ci), function(i) unit(ci[i], "strwidth", data = char[i]))
-        y <- y + sapply(seq_along(si), function(i) unit(si[i], "strheight", data = char[i]))
+        if (!is.unit(x))
+            x <- unit(x, default.units)
+        if (!is.unit(y))
+            y <- unit(y, default.units)
+
+        x <- x + unit(cos(i) * r, "strwidth", data = char)
+        y <- y + unit(sin(i) * r, "strheight", data = char)
         textGrob(label = label, x = x, y = y, just = just, hjust = hjust,
                  vjust = vjust, rot = rot, default.units = default.units,
                  check.overlap = check.overlap, name = name, gp = gp, vp = vp)
     })
-    
+
     bgGrob <- do.call(gList, bgList)
     grobs <- gList(bgGrob, upperGrob)
     gTree(children = grobs)
