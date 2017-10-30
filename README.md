@@ -1,47 +1,38 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-shadow text grob: `shadowtextGrob` and `grid.shadowtext`
---------------------------------------------------------
+# shadowtext: shadow text grob/layer for grid/ggplot2
 
-``` r
-library(shadowtext)
-grid.shadowtext("grid is awesome", gp=gpar(cex=3, col="white"), rot=45)
-grid.shadowtext("hello world", y=0.85, gp=gpar(cex=5, col="steelblue"), bg.color="firebrick")
-grid.shadowtext("R you ready!!!", y=.1, gp=gpar(cex=4, col="firebrick"))
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/shadowtext?color=green)](https://cran.r-project.org/package=shadowtext)
+![](http://cranlogs.r-pkg.org/badges/grand-total/shadowtext?color=green)
+![](http://cranlogs.r-pkg.org/badges/shadowtext?color=green)
+![](http://cranlogs.r-pkg.org/badges/last-week/shadowtext?color=green)
+[![gitter](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/GuangchuangYu/Bioinformatics)
+
+
+## Authors
+
+Guangchuang YU <https://guangchuangyu.github.io>
+
+School of Public Health, The University of Hong Kong
+
+## Installation
+
+Get the released version from CRAN:
+
+```r
+install.packages("shadowtext")
 ```
 
-![](Figs/unnamed-chunk-2-1.png)
+Or the development version from github:
 
-ggplot2 layer: `geom_shadowtext`
---------------------------------
-
-``` r
-library(ggplot2)
-
-random_text <- function(n=1, length=10) {
-    d <- data.frame(n=1:n, length=length)
-    sapply(1:nrow(d), function(i) {
-        paste(sample(c(0:9, letters, LETTERS),
-                     d$length[i], replace=TRUE),
-              collapse="")
-    })
-}
-
-n <- 10
-set.seed(2017-10-27)
-d <- data.frame(x = rnorm(n), y=rnorm(n),
-                label = random_text(n),
-                angle = sample(0:360, 10))
-p <- ggplot(d, aes(x, y)) + xlim(-2, 2.2) + ylim(-2, 2.4)
-
-p + geom_shadowtext(aes(label=label, angle=angle), size=5)
+```r
+## install.packages("devtools")
+devtools::install_github("GuangchuangYu/shadowtext")
 ```
 
-![](Figs/unnamed-chunk-3-1.png)
 
-``` r
-p + geom_shadowtext(aes(label=label, angle=angle, color=label),
-                    bg.color='firebrick', size=5) +
-    theme(legend.position="none")
+## Vignette
+
+```r
+## after installing the package
+vignette("shadowtext", package="shadowtext")
 ```
-
-![](Figs/unnamed-chunk-3-2.png)
