@@ -4,7 +4,7 @@ shadow text grob: `shadowtextGrob` and `grid.shadowtext`
 
 ``` r
 library(shadowtext)
-grid.shadowtext("hello world", gp=gpar(cex=3, col="steelblue"), bg.color="firebrick")
+grid.shadowtext("hello world", gp=gpar(cex=8, col="steelblue"), bg.color="firebrick")
 ```
 
 ![](Figs/unnamed-chunk-2-1.png)
