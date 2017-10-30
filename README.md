@@ -2,7 +2,7 @@
 ``` r
 library(ggplot2)
 library(ggshadow)
-random_text <- function(n=1, length=1) {
+random_text <- function(n=1, length=10) {
     d <- data.frame(n=1:n, length=length)
     sapply(1:nrow(d), function(i) {
         paste(sample(c(0:9, letters, LETTERS),
@@ -14,7 +14,7 @@ random_text <- function(n=1, length=1) {
 n <- 10
 set.seed(2017-10-27)
 d <- data.frame(x = rnorm(n), y=rnorm(n),
-                label = random_text(n, 10))
+                label = random_text(n))
 ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label), size=5)
 ```
 
