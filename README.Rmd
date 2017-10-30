@@ -14,9 +14,16 @@ knitr::opts_chunk$set(fig.path = "Figs/",
                       warning = FALSE,
                       message = FALSE)
 library(ggplot2)
-library(ggshadow)
+library(shadowtext)
 ```
 
+## shadow text grob: `shadowtextGrob` and `grid.shadowtext`
+
+```{r}
+grid.shadowtext("hello world", gp=gpar(cex=3, col="steelblue"), bg.color="firebrick")
+```
+
+## ggplot2 layer: `geom_shadowtext`
 
 ```{r}
 library(ggplot2)

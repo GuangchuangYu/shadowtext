@@ -1,8 +1,8 @@
-Package: ggshadow
-Title: Shadow Text Layer
-Version: 0.0.0.9000
+Package: shadowtext
+Title: Shadow Text Grob and Layer
+Version: 0.0.1
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
-Description: Implement a geom_shadowtext layer for ggplot2. The layer plot the text lable with background shadow.
+Description: Implement shadowtextGrob for grid and geom_shadowtext layer for ggplot2. These functions create/draw text grob with background shadow.
 Depends: R (>= 3.4.1)
 Imports:
     ggplot2,
