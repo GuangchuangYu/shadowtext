@@ -10,4 +10,6 @@ Imports:
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/GuangchuangYu/shadowtext/
+BugReports: https://github.com/GuangchuangYu/shadowtext/issues
 RoxygenNote: 6.0.1

@@ -34,15 +34,17 @@ shadowtextGrob <- function(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
                           vjust = vjust, rot = rot, default.units = default.units,
                           check.overlap = check.overlap, name = name, gp = gp, vp = vp)
 
+    if (is.null(bg.color))
+        return(upperGrob)
+
+
     gp$col <- bg.color
-    ovp <- vp
 
     theta <- seq(pi/8, 2*pi, length.out=16)
     char <- substring(label[1], 1, 1)
     r <- bg.r[1]
 
     bgList <- lapply(theta, function(i) {
-        vp <- ovp
         if (!is.unit(x))
             x <- unit(x, default.units)
         if (!is.unit(y))
