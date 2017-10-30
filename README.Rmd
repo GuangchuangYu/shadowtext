@@ -20,6 +20,7 @@ library(shadowtext)
 ## shadow text grob: `shadowtextGrob` and `grid.shadowtext`
 
 ```{r}
+library(shadowtext)
 grid.shadowtext("hello world", gp=gpar(cex=3, col="steelblue"), bg.color="firebrick")
 ```
 
@@ -27,7 +28,7 @@ grid.shadowtext("hello world", gp=gpar(cex=3, col="steelblue"), bg.color="firebr
 
 ```{r}
 library(ggplot2)
-library(ggshadow)
+
 random_text <- function(n=1, length=10) {
     d <- data.frame(n=1:n, length=length)
     sapply(1:nrow(d), function(i) {
