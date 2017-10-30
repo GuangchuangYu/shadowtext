@@ -21,7 +21,9 @@ library(shadowtext)
 
 ```{r}
 library(shadowtext)
-grid.shadowtext("hello world", gp=gpar(cex=5, col="steelblue"), bg.color="firebrick")
+grid.shadowtext("grid is awesome", gp=gpar(cex=3, col="white"), rot=45)
+grid.shadowtext("hello world", y=0.85, gp=gpar(cex=5, col="steelblue"), bg.color="firebrick")
+grid.shadowtext("R you ready!!!", y=.1, gp=gpar(cex=4, col="firebrick"))
 ```
 
 ## ggplot2 layer: `geom_shadowtext`
@@ -41,7 +43,13 @@ random_text <- function(n=1, length=10) {
 n <- 10
 set.seed(2017-10-27)
 d <- data.frame(x = rnorm(n), y=rnorm(n),
-                label = random_text(n))
-ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label), size=5)
-ggplot(d, aes(x,y)) + geom_shadowtext(aes(label=label, color=label), bg.color='firebrick', size=5)
+                label = random_text(n),
+                angle = sample(0:360, 10))
+p <- ggplot(d, aes(x, y)) + xlim(-2, 2.2) + ylim(-2, 2.4)
+
+p + geom_shadowtext(aes(label=label, angle=angle), size=5)
+
+p + geom_shadowtext(aes(label=label, angle=angle, color=label),
+                    bg.color='firebrick', size=5) +
+    theme(legend.position="none")
 ```
