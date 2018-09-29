@@ -40,7 +40,7 @@ library(shadowtext)
 ```{r}
 library(shadowtext)
 grid.shadowtext("grid is awesome", gp=gpar(cex=3, col="white"), rot=45)
-grid.shadowtext("hello world", y=0.85, gp=gpar(cex=5, col="steelblue"), bg.color="firebrick")
+grid.shadowtext("hello world", y=0.85, gp=gpar(cex=5, col="steelblue"), bg.colour="firebrick")
 grid.shadowtext("R you ready!!!", y=.1, gp=gpar(cex=4, col="firebrick"))
 ```
 
@@ -70,6 +70,6 @@ p <- ggplot(d, aes(x, y)) + xlim(-2, 2.2) + ylim(-2, 2.4)
 p + geom_shadowtext(aes(label=label, angle=angle), size=5)
 
 p + geom_shadowtext(aes(label=label, angle=angle, color=label),
-                    bg.color='firebrick', size=5) +
+                    bg.colour='firebrick', size=5) +
     theme(legend.position="none")
 ```

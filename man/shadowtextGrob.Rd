@@ -8,13 +8,14 @@
 shadowtextGrob(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
   just = "centre", hjust = NULL, vjust = NULL, rot = 0,
   check.overlap = FALSE, default.units = "npc", name = NULL,
-  gp = gpar(col = "white"), vp = NULL, bg.color = "black", bg.r = 0.1)
+  gp = gpar(col = "white"), vp = NULL, bg.colour = "black",
+  bg.r = 0.1)
 
 grid.shadowtext(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
   just = "centre", hjust = NULL, vjust = NULL, rot = 0,
   check.overlap = FALSE, default.units = "npc", name = NULL,
-  gp = gpar(col = "white"), vp = NULL, bg.color = "black", bg.r = 0.1,
-  draw = TRUE)
+  gp = gpar(col = "white"), vp = NULL, bg.colour = "black",
+  bg.r = 0.1, draw = TRUE)
 }
 \arguments{
 \item{label}{text labels}
@@ -41,7 +42,7 @@ grid.shadowtext(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
 
 \item{vp}{viewport object}
 
-\item{bg.color}{background color of shadow text}
+\item{bg.colour}{background color of shadow text}
 
 \item{bg.r}{background ratio of shadow text}
 

@@ -70,7 +70,7 @@ GeomShadowText <- ggproto("GeomShadowText", Geom,
                           default_aes = aes(
                               colour = "white", size = 3.88, angle = 0, hjust = 0.5,
                               vjust = 0.5, alpha = NA, family = "", fontface = 1, lineheight = 1.2,
-                              bg.color = "black", bg.r = 0.1
+                              bg.colour = "black", bg.r = 0.1
                           ),
 
                           draw_panel = function(data, panel_params, coord, parse = FALSE,
@@ -93,7 +93,7 @@ GeomShadowText <- ggproto("GeomShadowText", Geom,
                                   data$x, data$y, default.units = "native",
                                   hjust = data$hjust, vjust = data$vjust,
                                   rot = data$angle,
-                                  bg.color = alpha(data$bg.color, data$alpha),
+                                  bg.colour = alpha(data$bg.colour, data$alpha),
                                   bg.r = data$bg.r,
                                   gp = gpar(
                                       col = alpha(data$colour, data$alpha),

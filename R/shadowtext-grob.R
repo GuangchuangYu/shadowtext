@@ -14,7 +14,7 @@
 ##' @param name identifier
 ##' @param gp gpar object
 ##' @param vp viewport object
-##' @param bg.color background color of shadow text
+##' @param bg.colour background color of shadow text
 ##' @param bg.r background ratio of shadow text
 ##' @return grob object
 ##' @importFrom grid textGrob
@@ -28,17 +28,17 @@
 shadowtextGrob <- function(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
                            just = "centre", hjust = NULL, vjust = NULL, rot = 0, check.overlap = FALSE,
                            default.units = "npc", name = NULL, gp = gpar(col="white"), vp = NULL,
-                           bg.color = "black", bg.r = 0.1) {
+                           bg.colour = "black", bg.r = 0.1) {
 
     upperGrob <- textGrob(label = label, x = x, y = y, just = just, hjust = hjust,
                           vjust = vjust, rot = rot, default.units = default.units,
                           check.overlap = check.overlap, name = name, gp = gp, vp = vp)
 
-    if (is.null(bg.color))
+    if (is.null(bg.colour))
         return(upperGrob)
 
 
-    gp$col <- bg.color
+    gp$col <- bg.colour
 
     theta <- seq(pi/8, 2*pi, length.out=16)
     char <- substring(label[1], 1, 1)
@@ -69,11 +69,11 @@ shadowtextGrob <- function(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
 grid.shadowtext <- function(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
                            just = "centre", hjust = NULL, vjust = NULL, rot = 0, check.overlap = FALSE,
                            default.units = "npc", name = NULL, gp = gpar(col="white"), vp = NULL,
-                           bg.color = "black", bg.r = 0.1, draw = TRUE) {
+                           bg.colour = "black", bg.r = 0.1, draw = TRUE) {
     stg <- shadowtextGrob(label = label, x = x, y = y, just = just, hjust = hjust,
                           vjust = vjust, rot = rot, default.units = default.units,
                           check.overlap = check.overlap, name = name, gp = gp, vp = vp,
-                          bg.color = bg.color, bg.r = bg.r)
+                          bg.colour = bg.colour, bg.r = bg.r)
     if (draw) grid.draw(stg)
     invisible(stg)
 }
