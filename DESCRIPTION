@@ -1,6 +1,6 @@
 Package: shadowtext
 Title: Shadow Text Grob and Layer
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
 Description: Implement shadowtextGrob() for 'grid' and geom_shadowtext() layer for 'ggplot2'.
              These functions create/draw text grob with background shadow.
@@ -17,4 +17,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/GuangchuangYu/shadowtext/
 BugReports: https://github.com/GuangchuangYu/shadowtext/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
