@@ -1,10 +1,8 @@
 ---
 title: "Shadow Text Grob and Layer"
-author: "\\
+author: "Guangchuang Yu\\
 
-	Guangchuang Yu\\
-
-        School of Public Health, The University of Hong Kong"
+        School of Basic Medical Sciences, Southern Medical University"
 date: "`r Sys.Date()`"
 output:
   prettydoc::html_pretty:

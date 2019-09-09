@@ -12,7 +12,8 @@
 
 Guangchuang YU <https://guangchuangyu.github.io>
 
-School of Public Health, The University of Hong Kong
+School of Basic Medical Sciences, Southern Medical University
+
 
 ## Installation
 
