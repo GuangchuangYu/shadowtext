@@ -73,3 +73,22 @@ p + geom_shadowtext(aes(label=label, angle=angle, color=label),
                     bg.colour='firebrick', size=5) +
     theme(legend.position="none")
 ```
+
+axis text is also supported:
+
+```{r}
+x <- c("a","b","c","d","e","f")
+y <- c("10", "9","-10","11","-3","-15")
+data <- data.frame(x, y)
+data$y <- as.numeric(as.character(data$y))
+
+data$category <- ifelse(as.numeric(data$y)<0, 0, 1)
+data$category <- as.factor(data$category)
+
+g <- ggplot(data, aes(x = x, y = y)) +  
+    geom_bar(stat = "identity", aes(fill = category))
+
+g + theme(axis.text.x = element_shadowtext( 
+                      			colour = "white", 
+			                      size = 12,face = "bold"))
+```
