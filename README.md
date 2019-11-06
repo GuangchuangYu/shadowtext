@@ -5,17 +5,18 @@
 ![](http://cranlogs.r-pkg.org/badges/grand-total/shadowtext?color=green)
 ![](http://cranlogs.r-pkg.org/badges/shadowtext?color=green)
 ![](http://cranlogs.r-pkg.org/badges/last-week/shadowtext?color=green)
-[![gitter](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/GuangchuangYu/Bioinformatics)
+[![](https://img.shields.io/badge/follow%20me%20on-WeChat-green.svg)](https://guangchuangyu.github.io/blog_images/biobabble.jpg)
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/GuangchuangYu)
 
 
-## Authors
+## :writing_hand: Authors
 
 Guangchuang YU <https://guangchuangyu.github.io>
 
 School of Basic Medical Sciences, Southern Medical University
 
 
-## Installation
+## :arrow_double_down: Installation
 
 Get the released version from CRAN:
 
@@ -31,7 +32,7 @@ devtools::install_github("GuangchuangYu/shadowtext")
 ```
 
 
-## Vignette
+## :book: Vignette
 
 ```r
 ## after installing the package
