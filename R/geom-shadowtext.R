@@ -66,6 +66,7 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
 ##' @importFrom ggplot2 Geom
 ##' @importFrom ggplot2 .pt
 ##' @importFrom scales alpha
+##' @export
 GeomShadowText <- ggproto("GeomShadowText", Geom,
                           required_aes = c("x", "y", "label"),
 

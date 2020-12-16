@@ -18,4 +18,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/GuangchuangYu/shadowtext/
 BugReports: https://github.com/GuangchuangYu/shadowtext/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
