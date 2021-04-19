@@ -4,10 +4,20 @@
 \alias{element_shadowtext}
 \title{element_shadowtext}
 \usage{
-element_shadowtext(family = NULL, face = NULL, colour = NULL,
-  size = NULL, hjust = NULL, vjust = NULL, angle = NULL,
-  lineheight = NULL, color = NULL, margin = NULL, debug = NULL,
-  inherit.blank = FALSE)
+element_shadowtext(
+  family = NULL,
+  face = NULL,
+  colour = NULL,
+  size = NULL,
+  hjust = NULL,
+  vjust = NULL,
+  angle = NULL,
+  lineheight = NULL,
+  color = NULL,
+  margin = NULL,
+  debug = NULL,
+  inherit.blank = FALSE
+)
 }
 \arguments{
 \item{family}{Font family}

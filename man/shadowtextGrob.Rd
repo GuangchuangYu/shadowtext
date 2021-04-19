@@ -5,17 +5,40 @@
 \alias{grid.shadowtext}
 \title{shadowtextGrob}
 \usage{
-shadowtextGrob(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
-  just = "centre", hjust = NULL, vjust = NULL, rot = 0,
-  check.overlap = FALSE, default.units = "npc", name = NULL,
-  gp = gpar(col = "white"), vp = NULL, bg.colour = "black",
-  bg.r = 0.1)
+shadowtextGrob(
+  label,
+  x = unit(0.5, "npc"),
+  y = unit(0.5, "npc"),
+  just = "centre",
+  hjust = NULL,
+  vjust = NULL,
+  rot = 0,
+  check.overlap = FALSE,
+  default.units = "npc",
+  name = NULL,
+  gp = gpar(col = "white"),
+  vp = NULL,
+  bg.colour = "black",
+  bg.r = 0.1
+)
 
-grid.shadowtext(label, x = unit(0.5, "npc"), y = unit(0.5, "npc"),
-  just = "centre", hjust = NULL, vjust = NULL, rot = 0,
-  check.overlap = FALSE, default.units = "npc", name = NULL,
-  gp = gpar(col = "white"), vp = NULL, bg.colour = "black",
-  bg.r = 0.1, draw = TRUE)
+grid.shadowtext(
+  label,
+  x = unit(0.5, "npc"),
+  y = unit(0.5, "npc"),
+  just = "centre",
+  hjust = NULL,
+  vjust = NULL,
+  rot = 0,
+  check.overlap = FALSE,
+  default.units = "npc",
+  name = NULL,
+  gp = gpar(col = "white"),
+  vp = NULL,
+  bg.colour = "black",
+  bg.r = 0.1,
+  draw = TRUE
+)
 }
 \arguments{
 \item{label}{text labels}

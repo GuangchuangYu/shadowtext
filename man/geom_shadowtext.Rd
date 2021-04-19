@@ -4,10 +4,20 @@
 \alias{geom_shadowtext}
 \title{geom_shadowtext}
 \usage{
-geom_shadowtext(mapping = NULL, data = NULL, stat = "identity",
-  position = "identity", ..., parse = FALSE, nudge_x = 0,
-  nudge_y = 0, check_overlap = FALSE, na.rm = FALSE,
-  show.legend = NA, inherit.aes = TRUE)
+geom_shadowtext(
+  mapping = NULL,
+  data = NULL,
+  stat = "identity",
+  position = "identity",
+  ...,
+  parse = FALSE,
+  nudge_x = 0,
+  nudge_y = 0,
+  check_overlap = FALSE,
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE
+)
 }
 \arguments{
 \item{mapping}{aesthetic mapping}
