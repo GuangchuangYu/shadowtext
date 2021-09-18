@@ -11,7 +11,7 @@
 
 ## :writing_hand: Authors
 
-Guangchuang YU <https://guangchuangyu.github.io>
+Guangchuang YU <https://yulab-smu.top>
 
 School of Basic Medical Sciences, Southern Medical University
 
@@ -27,8 +27,8 @@ install.packages("shadowtext")
 Or the development version from github:
 
 ```r
-## install.packages("devtools")
-devtools::install_github("GuangchuangYu/shadowtext")
+## install.packages("remotes")
+remotes::install_github("GuangchuangYu/shadowtext")
 ```
 
 
