@@ -59,7 +59,11 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
         check.param = FALSE
     )
 }
-
+##' ShadowText Geom
+##'
+##'
+##' @rdname ggproto-shadowtext
+##' @title GeomShadowText 
 ##' @importFrom ggplot2 ggproto
 ##' @importFrom ggplot2 aes
 ##' @importFrom ggplot2 draw_key_text
@@ -67,6 +71,7 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
 ##' @importFrom ggplot2 .pt
 ##' @importFrom scales alpha
 ##' @export
+##' @author Guangchuang Yu
 GeomShadowText <- ggproto("GeomShadowText", Geom,
                           required_aes = c("x", "y", "label"),
 
