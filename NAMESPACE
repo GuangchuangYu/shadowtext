@@ -2,6 +2,7 @@
 
 S3method(element_grob,element_shadowtext)
 export(GeomShadowText)
+export(GeomShadowtext)
 export(element_shadowtext)
 export(geom_shadowtext)
 export(gpar)

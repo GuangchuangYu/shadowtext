@@ -1,6 +1,10 @@
+# shadowtext 0.1.0
+
++ export `Shadowtext` geom, so that users can use `annotate("shadowtext")` (2021-12-20, Mon, #11)
+
 # shadowtext 0.0.9
 
-+ export ShadowText Geom, so that users can use e.g., `update_geom_defaults("ShadowText", list(size=28))` (2021-09-19, Sun, @bbcuffer, #9)
++ export `ShadowText` Geom, so that users can use e.g., `update_geom_defaults("ShadowText", list(size=28))` (2021-09-19, Sun, @bbcuffer, #9)
 
 # shadowtext 0.0.8
 

@@ -59,6 +59,9 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
         check.param = FALSE
     )
 }
+
+
+
 ##' ShadowText Geom
 ##'
 ##'
@@ -116,6 +119,13 @@ GeomShadowText <- ggproto("GeomShadowText", Geom,
 
                           draw_key = draw_key_text
                           )
+
+##' @rdname ggproto-shadowtext
+##' @format NULL
+##' @usage NULL
+##' @export
+GeomShadowtext <- GeomShadowText
+
 
 compute_just <- getFromNamespace("compute_just", "ggplot2")
 just_dir <- getFromNamespace("just_dir", "ggplot2")
