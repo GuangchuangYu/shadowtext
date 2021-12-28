@@ -77,13 +77,17 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
 ##' @author Guangchuang Yu
 GeomShadowText <- ggproto("GeomShadowText", Geom,
                           required_aes = c("x", "y", "label"),
-
                           default_aes = aes(
                               colour = "white", size = 3.88, angle = 0, hjust = 0.5,
                               vjust = 0.5, alpha = NA, family = "", fontface = 1, lineheight = 1.2,
                               bg.colour = "black", bg.r = 0.1
                           ),
-
+                          optional_aes = c("subset"),
+                          setup_data = function(data, params){
+                              if (is.null(data$subset))
+                                  return(data)
+                              data[which(data$subset),]
+                          },
                           draw_panel = function(data, panel_params, coord, parse = FALSE,
                                                 na.rm = FALSE, check_overlap = FALSE) {
                               lab <- data$label
