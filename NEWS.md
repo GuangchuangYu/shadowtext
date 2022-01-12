@@ -1,3 +1,7 @@
+# shadowtext 0.1.1
+
++ support `aes(subset)` to compatible with `ggtree::geom_tiplab()` (2022-01-10, Mon)
+
 # shadowtext 0.1.0
 
 + export `Shadowtext` geom, so that users can use `annotate("shadowtext")` (2021-12-20, Mon, #11)
