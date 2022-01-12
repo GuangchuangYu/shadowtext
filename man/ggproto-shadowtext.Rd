@@ -6,7 +6,7 @@
 \alias{GeomShadowtext}
 \title{GeomShadowText}
 \format{
-An object of class \code{GeomShadowText} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 5.
+An object of class \code{GeomShadowText} (inherits from \code{Geom}, \code{ggproto}, \code{gg}) of length 7.
 }
 \usage{
 GeomShadowText
