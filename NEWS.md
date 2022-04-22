@@ -1,4 +1,4 @@
-# shadowtext 0.1.1
+# shadowtext 0.1.2
 
 + support `aes(subset)` to compatible with `ggtree::geom_tiplab()` (2022-01-10, Mon)
 
