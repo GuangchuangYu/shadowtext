@@ -38,3 +38,6 @@ remotes::install_github("GuangchuangYu/shadowtext")
 ## after installing the package
 vignette("shadowtext", package="shadowtext")
 ```
+
+online version: <https://cran.r-project.org/web/packages/shadowtext/vignettes/shadowtext.html>
+
