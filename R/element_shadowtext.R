@@ -106,6 +106,53 @@ shadow.title_spec <- function (label, x, y, hjust, vjust, angle, gp = gpar(), de
 "%||%" <- getFromNamespace("%||%", "ggplot2")
 zeroGrob <- getFromNamespace("zeroGrob", "ggplot2")
 modify_list <- getFromNamespace("modify_list", "ggplot2")
-add_margins <- getFromNamespace("add_margins", "ggplot2")
 rotate_just <- getFromNamespace("rotate_just", "ggplot2")
 font_descent <- getFromNamespace("font_descent", "ggplot2")
+
+add_margins <- function(grob, height, width, margin = NULL,
+                        gp = gpar(), margin_x = FALSE, margin_y = FALSE) {
+
+    if (is.null(margin)) {
+        margin <- margin(0, 0, 0, 0)
+    }
+
+    if (margin_x & margin_y) {
+        widths  <- grid::unit.c(margin[4], width, margin[2])
+        heights <- grid::unit.c(margin[1], height, margin[3])
+
+        vp <- grid::viewport(
+            layout = grid::grid.layout(3, 3, heights = heights, widths = widths),
+            gp = gp
+        )
+        child_vp <- grid::viewport(layout.pos.row = 2, layout.pos.col = 2)
+    } else if (margin_x) {
+        widths <- grid::unit.c(margin[4], width, margin[2])
+        vp <- grid::viewport(layout = grid::grid.layout(1, 3, widths = widths), gp = gp)
+        child_vp <- grid::viewport(layout.pos.col = 2)
+        heights <- unit(1, "null")
+    } else if (margin_y) {
+        heights <- grid::unit.c(margin[1], height, margin[3])
+        vp <- grid::viewport(layout = grid::grid.layout(3, 1, heights = heights), gp = gp)
+        child_vp <- grid::viewport(layout.pos.row = 2)
+        widths <- unit(1, "null")
+    } else {
+        widths <- width
+        heights <- height
+        return(
+            grid::gTree(
+                children = grob,
+                widths = widths,
+                heights = heights,
+                cl = "titleGrob"
+            )
+        )
+    }
+
+    grid::gTree(
+        children = grob,
+        vp = grid::vpTree(vp, grid::vpList(child_vp)),
+        widths = widths,
+        heights = heights,
+        cl = "titleGrob"
+    )
+}
