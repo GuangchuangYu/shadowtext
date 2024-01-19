@@ -1,3 +1,7 @@
+# shadowtext 0.1.3
+
++ inline `add_margins()` to compatible with 'ggplot2' 3.5.0 (2024-01-19, Fri, #13)
+
 # shadowtext 0.1.2
 
 + support `aes(subset)` to compatible with `ggtree::geom_tiplab()` (2022-01-10, Mon)
