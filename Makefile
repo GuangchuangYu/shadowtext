@@ -13,12 +13,16 @@ readme:
 	Rscript -e 'rmarkdown::render("README.Rmd")'
 
 build:
-	cd ..;\
-	R CMD build $(PKGSRC)
+	Rscript -e 'devtools::build()'
 
 build2:
 	cd ..;\
 	R CMD build --no-build-vignettes $(PKGSRC)
+
+build3:
+	cd ..;\
+	R CMD build $(PKGSRC)
+
 
 install:
 	cd ..;\
@@ -34,7 +38,7 @@ check2: build
 check3: build
 	cd ..;\
 	Rscript -e 'rcmdcheck::rcmdcheck("$(PKGNAME)_$(PKGVERS).tar.gz", args="--as-cran")'
-	
+
 clean:
 	cd ..;\
 	$(RM) -r $(PKGNAME).Rcheck/
