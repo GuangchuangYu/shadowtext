@@ -16,6 +16,9 @@ element_shadowtext(
   color = NULL,
   margin = NULL,
   debug = NULL,
+  bg.colour = "black",
+  bg.color = NULL,
+  bg.r = 0.1,
   inherit.blank = FALSE
 )
 }
@@ -41,6 +44,12 @@ element_shadowtext(
 \item{margin}{margins around the text, see also 'margin()' for more details}
 
 \item{debug}{if 'TRUE', aids visual debugging by drawing a solic rectangle behind the complete text area, and a point where each label is anchored.}
+
+\item{bg.colour}{the background colour of text, default is \code{black}.}
+
+\item{bg.color}{the alias of bg.colour,}
+
+\item{bg.r}{background ratio of shadow text.}
 
 \item{inherit.blank}{whether inherit 'element_blank'}
 }
