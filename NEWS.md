@@ -1,3 +1,7 @@
+# shadowtext 0.1.4
+
++ add `bg.colour` and `bg.r` arguments in `element_shadowtext()` (2024-07-18, Thu)
+
 # shadowtext 0.1.3
 
 + inline `add_margins()` to compatible with 'ggplot2' 3.5.0 (2024-01-19, Fri, #13)

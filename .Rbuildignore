@@ -4,3 +4,4 @@ Makefile
 README.Rmd
 README.md
 Figs
+^CRAN-SUBMISSION$
