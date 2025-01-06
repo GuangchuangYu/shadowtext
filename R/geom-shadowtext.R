@@ -34,6 +34,9 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
                             na.rm = FALSE,
                             show.legend = NA,
                             inherit.aes = TRUE) {
+    
+    yulab.utils:::.crap(n=2L, fn = 'caller function')
+
     if (!missing(nudge_x) || !missing(nudge_y)) {
         if (!missing(position)) {
             stop("Specify either `position` or `nudge_x`/`nudge_y`", call. = FALSE)
