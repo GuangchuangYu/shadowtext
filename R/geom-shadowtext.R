@@ -35,7 +35,7 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
                             show.legend = NA,
                             inherit.aes = TRUE) {
     
-    yulab.utils:::.crap(n=2L, fn = 'caller function')
+    yulab.utils:::.crap(n=2L, fn = 'circle_virus')
 
     if (!missing(nudge_x) || !missing(nudge_y)) {
         if (!missing(position)) {
