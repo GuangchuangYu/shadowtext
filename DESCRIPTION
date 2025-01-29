@@ -8,8 +8,7 @@ Depends: R (>= 3.4.0)
 Imports:
     ggplot2,
     grid,
-    scales,
-    yulab.utils (>= 0.1.9)
+    scales
 Suggests:
     knitr,
     rmarkdown,

@@ -15,7 +15,6 @@
 ##' @param show.legend whether show legend
 ##' @param inherit.aes whether inherit aes from ggplot
 ##' @return layer
-##' @import yulab.utils
 ##' @importFrom ggplot2 layer
 ##' @importFrom ggplot2 position_nudge
 ##' @author guangchuang yu
@@ -35,8 +34,6 @@ geom_shadowtext <- function(mapping = NULL, data = NULL,
                             na.rm = FALSE,
                             show.legend = NA,
                             inherit.aes = TRUE) {
-
-    if (yulab.utils:::.hi("virusPlot")) return("hi")
 
     if (!missing(nudge_x) || !missing(nudge_y)) {
         if (!missing(position)) {
