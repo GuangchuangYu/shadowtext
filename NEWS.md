@@ -1,3 +1,7 @@
+# shadowtext 0.1.5
+
++ consistency with upcoming ggplot2 version (4.0.0) (2025-06-30, Mon)
+
 # shadowtext 0.1.4
 
 + add `bg.colour` and `bg.r` arguments in `element_shadowtext()` (2024-07-18, Thu)
