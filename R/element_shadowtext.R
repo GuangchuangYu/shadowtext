@@ -62,8 +62,8 @@ element_grob.element_shadowtext <- function (element, label = "", x = NULL, y = 
                      margin_y = margin_y, debug = element$debug)                                  
 }
 
-##' @importFrom grid rectGrob
-##' @importFrom grid pointsGrob
+##' @importFrom grid rectGrob viewport grid.layout
+##' @importFrom grid pointsGrob unit.c gTree vpTree vpList
 shadow.titleGrob <- function (label, x, y, hjust, vjust, angle = 0, gp = gpar(), bg.colour, bg.r,
                                margin = NULL, margin_x = FALSE, margin_y = FALSE, debug = FALSE) {
     if (is.null(label))
@@ -78,6 +78,7 @@ shadow.titleGrob <- function (label, x, y, hjust, vjust, angle = 0, gp = gpar(),
 } 
 
 
+#' @importFrom S7 S7_inherits props
 shadow.title_spec <- function (label, x, y, hjust, vjust, angle, gp = gpar(), 
                                bg.colour, bg.r, debug = FALSE) {
     if (is.null(label))                                                                  
@@ -129,29 +130,29 @@ add_margins <- function(grob, height, width, margin = NULL,
     }
 
     if (margin_x & margin_y) {
-        widths  <- grid::unit.c(margin[4], width, margin[2])
-        heights <- grid::unit.c(margin[1], height, margin[3])
+        widths  <- unit.c(margin[4], width, margin[2])
+        heights <- unit.c(margin[1], height, margin[3])
 
-        vp <- grid::viewport(
-            layout = grid::grid.layout(3, 3, heights = heights, widths = widths),
+        vp <- viewport(
+            layout = grid.layout(3, 3, heights = heights, widths = widths),
             gp = gp
         )
-        child_vp <- grid::viewport(layout.pos.row = 2, layout.pos.col = 2)
+        child_vp <- viewport(layout.pos.row = 2, layout.pos.col = 2)
     } else if (margin_x) {
-        widths <- grid::unit.c(margin[4], width, margin[2])
-        vp <- grid::viewport(layout = grid::grid.layout(1, 3, widths = widths), gp = gp)
-        child_vp <- grid::viewport(layout.pos.col = 2)
+        widths <- unit.c(margin[4], width, margin[2])
+        vp <- viewport(layout = grid.layout(1, 3, widths = widths), gp = gp)
+        child_vp <- viewport(layout.pos.col = 2)
         heights <- unit(1, "null")
     } else if (margin_y) {
-        heights <- grid::unit.c(margin[1], height, margin[3])
-        vp <- grid::viewport(layout = grid::grid.layout(3, 1, heights = heights), gp = gp)
-        child_vp <- grid::viewport(layout.pos.row = 2)
+        heights <- unit.c(margin[1], height, margin[3])
+        vp <- viewport(layout = grid.layout(3, 1, heights = heights), gp = gp)
+        child_vp <- viewport(layout.pos.row = 2)
         widths <- unit(1, "null")
     } else {
         widths <- width
         heights <- height
         return(
-            grid::gTree(
+            gTree(
                 children = grob,
                 widths = widths,
                 heights = heights,
@@ -160,9 +161,9 @@ add_margins <- function(grob, height, width, margin = NULL,
         )
     }
 
-    grid::gTree(
+    gTree(
         children = grob,
-        vp = grid::vpTree(vp, grid::vpList(child_vp)),
+        vp = vpTree(vp, vpList(child_vp)),
         widths = widths,
         heights = heights,
         cl = "titleGrob"
