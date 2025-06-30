@@ -8,7 +8,8 @@ Depends: R (>= 3.4.0)
 Imports:
     ggplot2,
     grid,
-    scales
+    scales,
+    S7
 Suggests:
     knitr,
     rmarkdown,

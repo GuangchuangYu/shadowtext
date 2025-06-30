@@ -113,7 +113,7 @@ GeomShadowText <- ggproto("GeomShadowText", Geom,
                                   bg.r = data$bg.r,
                                   gp = gpar(
                                       col = alpha(data$colour, data$alpha),
-                                      fontsize = data$size * ggplot2::.pt,
+                                      fontsize = data$size * .pt,
                                       fontfamily = data$family,
                                       fontface = data$fontface,
                                       lineheight = data$lineheight
@@ -135,5 +135,5 @@ GeomShadowtext <- GeomShadowText
 compute_just <- getFromNamespace("compute_just", "ggplot2")
 just_dir <- getFromNamespace("just_dir", "ggplot2")
 
-
+.pt <- 2.845276
 
