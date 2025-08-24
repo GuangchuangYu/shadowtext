@@ -1,11 +1,15 @@
 Package: shadowtext
 Title: Shadow Text Grob and Layer
-Version: 0.1.5
-Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
+Version: 0.1.6
+Authors@R: c(
+       person("Guangchuang", "Yu",     email = "guangchuangyu@gmail.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-6485-8781")),
+       person("Shuangbin", "Xu",       email = "xshuangbin@163.com",      role = "ctb", comment = c(ORCID="0000-0003-3513-5362"))
+       )
 Description: Implement shadowtextGrob() for 'grid' and geom_shadowtext() layer for 'ggplot2'.
              These functions create/draw text grob with background shadow.
 Depends: R (>= 3.4.0)
 Imports:
+    ggiraph,
     ggplot2,
     grid,
     scales,
@@ -15,8 +19,7 @@ Imports:
 Suggests:
     knitr,
     rmarkdown,
-    prettydoc,
-    ggiraph
+    prettydoc
 VignetteBuilder: knitr
 License: Artistic-2.0
 Encoding: UTF-8

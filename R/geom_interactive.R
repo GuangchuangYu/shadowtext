@@ -13,6 +13,7 @@ geom_shadowtext_interactive <- function(...){
 
 #' @importFrom purrr detect_index
 # the internal functions of ggiraph
+#' @import ggiraph
 layer_interactive <- getFromNamespace("layer_interactive", "ggiraph")
 add_default_interactive_aes <- getFromNamespace("add_default_interactive_aes", "ggiraph")
 interactive_geom_parameters <- getFromNamespace("interactive_geom_parameters", "ggiraph")

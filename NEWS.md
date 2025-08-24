@@ -1,3 +1,7 @@
+# shadowtext 0.1.6
+
++ add `geom_shadowtext_interactive()` (2025-08-24, Sun, #18)
+
 # shadowtext 0.1.5
 
 + consistency with upcoming ggplot2 version (4.0.0) (2025-06-30, Mon)
