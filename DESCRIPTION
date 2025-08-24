@@ -9,11 +9,14 @@ Imports:
     ggplot2,
     grid,
     scales,
-    S7
+    S7,
+    purrr,
+    rlang
 Suggests:
     knitr,
     rmarkdown,
-    prettydoc
+    prettydoc,
+    ggiraph
 VignetteBuilder: knitr
 License: Artistic-2.0
 Encoding: UTF-8
