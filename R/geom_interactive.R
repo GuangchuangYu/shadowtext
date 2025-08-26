@@ -5,6 +5,34 @@
 #' @param ... see also the parameters of `geom_shadowtext()` of `shadowtext`
 #' @export
 #' @importFrom rlang check_installed
+#' @examples
+#' library(ggplot2)
+#' library(ggiraph)
+#' mtcars$label <- rownames(mtcars)
+#' mtcars$tooltip = paste0(
+#'    "cyl: ",
+#'    mtcars$cyl,
+#'    "<br/>",
+#'    "gear: ",
+#'    mtcars$gear,
+#'    "<br/>",
+#'    "carb: ",
+#'    mtcars$carb
+#'  )
+#' p <- ggplot(
+#'        mtcars,
+#'        aes(
+#'          x = mpg,
+#'          y = wt,
+#'          label = label,
+#'          color = qsec,
+#'          tooltip = tooltip,
+#'          data_id = label
+#'        )
+#'      ) +
+#'      geom_shadowtext_interactive(check_overlap = TRUE) +
+#'      coord_cartesian(xlim = c(0, 50)) 
+#' girafe(ggobj = p, options = list(opts_hover(css = "fill:#FF4C3B;font-style:italic;")))
 geom_shadowtext_interactive <- function(...){
   rlang::check_installed('ggiraph', "for `geom_shadowtext_interactive()`.")
   layer_interactive(geom_shadowtext, interactive_geom = GeomInteractiveShadowtext,...)
@@ -37,6 +65,9 @@ GeomInteractiveShadowtext <- ggproto(
   draw_key = interactive_geom_draw_key,
   draw_panel = function(data, panel_params, coord, ..., .ipar = IPAR_NAMES){
     gr <- GeomShadowtext$draw_panel(data, panel_params, coord, ...)
+    if (!.check_ipar_params(data)){
+      return(gr)
+    }
     coords <- coord$transform(data, panel_params)
     ind <- length(gr$children)
     gr$children[[ind]] <- add_interactive_attrs(gr$children[[ind]], coords, ipar=.ipar)
@@ -44,4 +75,6 @@ GeomInteractiveShadowtext <- ggproto(
   }
 )
 
-
+.check_ipar_params <- function(x){
+  any(colnames(x) %in% IPAR_NAMES)
+}
