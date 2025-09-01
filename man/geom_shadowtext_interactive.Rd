@@ -13,3 +13,32 @@ geom_shadowtext_interactive(...)
 The geometry is based on `geom_shadowtext()`.
 See the documentation for those functions for more details.
 }
+\examples{
+library(ggplot2)
+library(ggiraph)
+mtcars$label <- rownames(mtcars)
+mtcars$tooltip = paste0(
+   "cyl: ",
+   mtcars$cyl,
+   "<br/>",
+   "gear: ",
+   mtcars$gear,
+   "<br/>",
+   "carb: ",
+   mtcars$carb
+ )
+p <- ggplot(
+       mtcars,
+       aes(
+         x = mpg,
+         y = wt,
+         label = label,
+         color = qsec,
+         tooltip = tooltip,
+         data_id = label
+       )
+     ) +
+     geom_shadowtext_interactive(check_overlap = TRUE) +
+     coord_cartesian(xlim = c(0, 50)) 
+girafe(ggobj = p, options = list(opts_hover(css = "fill:#FF4C3B;font-style:italic;")))
+}
