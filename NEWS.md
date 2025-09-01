@@ -1,6 +1,6 @@
 # shadowtext 0.1.6
 
-+ add `geom_shadowtext_interactive()` (2025-08-24, Sun, #18)
++ add `geom_shadowtext_interactive()` (2025-08-24, Sun, #18, #19)
 
 # shadowtext 0.1.5
 
